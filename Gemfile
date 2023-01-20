@@ -57,7 +57,12 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  #  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rspec', require: false
+
+  gem 'rspec', '~> 3.12'
+  gem 'rspec-rails'
+  gem 'rspec-instafail', require: false
+  gem 'fuubar', require: false
 end
 
 group :development do
@@ -69,4 +74,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :test do
+  gem 'factory_bot'
+  gem 'with_model'
+
+  gem 'zonebie'
 end
