@@ -1,7 +1,15 @@
 # Mirror this repo to other servers
 
 name: Mirror, mirror
-on: [push, delete]
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+      - 'feature/**'
+  delete:
+      - 'releases/**'
+      - 'feature/**'
 
 jobs:
   to_gitlab:
