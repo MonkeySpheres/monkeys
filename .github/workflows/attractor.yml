@@ -1,0 +1,28 @@
+name: Run Attractor
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+      - 'feature/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with: 
+        fetch-depth: '0'
+    - name: Run Attractor
+      uses: julianrubisch/attractor-action@master
+      with:
+        version: 'latest'
+        bundle: 'false'
+#        (file_prefix: 'app/models') # OPTIONAL
+#        (javascript: '(true|false)') # OPTIONAL
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v1
+      if: success()
+      with:
+        name: attractor
+        path: attractor_output
